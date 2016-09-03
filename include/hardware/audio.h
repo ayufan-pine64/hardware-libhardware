@@ -163,6 +163,7 @@ __BEGIN_DECLS
 #define AUDIO_OFFLOAD_CODEC_DOWN_SAMPLING  "music_offload_down_sampling"
 #define AUDIO_OFFLOAD_CODEC_DELAY_SAMPLES  "delay_samples"
 #define AUDIO_OFFLOAD_CODEC_PADDING_SAMPLES  "padding_samples"
+#define AUDIO_PARAMETER_RAW_DATA_OUT "raw_data_output"
 
 /**************************************/
 
