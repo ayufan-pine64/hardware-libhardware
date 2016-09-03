@@ -807,6 +807,12 @@ typedef struct hwc_composer_device_1 {
      */
     int (*setCursorPositionAsync)(struct hwc_composer_device_1 *dev, int disp, int x_pos, int y_pos);
 
+    int (*setParameter)(struct hwc_composer_device_1* dev, int cmd, int disp,
+            int para0, int para1);
+
+    int (*getParameter)(struct hwc_composer_device_1* dev, int cmd, int disp,
+            int para0, int para1);
+
     /*
      * Reserved for future use. Must be NULL.
      */
@@ -827,6 +833,25 @@ static inline int hwc_close_1(hwc_composer_device_1_t* device) {
 }
 
 /*****************************************************************************/
+/* cmd parameter for setParameter() */
+typedef enum{
+	DISPLAY_CMD_SET3DMODE = 0x01,
+	DISPLAY_CMD_SETBACKLIGHTMODE = 0x02,
+	DISPLAY_CMD_SETBACKLIGHTDEMOMODE = 0x03,
+	DISPLAY_CMD_SETDISPLAYENHANCEMODE = 0x04,
+	DISPLAY_CMD_SETDISPLAYENHANCEDEMOMODE = 0x05,
+    DISPLAY_CMD_SETOUTPUTMODE = 0x06,
+    DISPLAY_CMD_HDMIPERSENT = 0x07
+}__display_cmd_t;
+
+typedef enum
+{
+    DISPLAY_2D_ORIGINAL = 0,
+    DISPLAY_2D_LEFT = 1,
+    DISPLAY_2D_TOP = 2,
+    DISPLAY_3D_LEFT_RIGHT_HDMI = 3,
+    DISPLAY_3D_TOP_BOTTOM_HDMI = 4
+}__display_3d_mode;
 
 __END_DECLS
 
